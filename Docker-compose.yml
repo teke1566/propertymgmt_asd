@@ -1,0 +1,30 @@
+version: '3.1'
+services:
+  app:
+    container_name: PropertyManagment
+    image: property_management_app
+    build: ./
+    ports:
+      - "8082:8080"
+    depends_on:
+      - pg
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://pg:5432/mydb
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+      - SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL=true
+      - SPRING_JPA_SHOW_SQL=true
+      - SPRING_JPA_DEFER_DATASOURCE_INITIALIZATION=true
+      - SPRING_JPA_GENERATE_DDL=true
+      - SPRING_SQL_INIT_MODE=always
+
+  pg:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=mydb
