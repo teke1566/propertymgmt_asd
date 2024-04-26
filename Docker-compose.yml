@@ -9,7 +9,7 @@ services:
     depends_on:
       - pg
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://pg:5432/mydb
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://pg:5432/mydbm
       - SPRING_DATASOURCE_PASSWORD=admin
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
@@ -27,4 +27,4 @@ services:
     environment:
       - POSTGRES_PASSWORD=admin
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=mydb
+      - POSTGRES_DB=mydbm

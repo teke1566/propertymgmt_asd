@@ -20,10 +20,10 @@ public class AddressResponseWithoutProperty {
     private String state;
     public static AddressResponseWithoutProperty fromAddress (Address address) {
         AddressResponseWithoutProperty addressDto = new AddressResponseWithoutProperty();
-        addressDto.setId(addressDto.getId());
+        addressDto.setId(address.getId());
         addressDto.setStreet(address.getStreet());
         addressDto.setCity(address.getCity());
-        addressDto.setZipcode(address.getCity());
+        addressDto.setZipcode(address.getZipCode());
         addressDto.setState(address.getState());
         return addressDto;
     }

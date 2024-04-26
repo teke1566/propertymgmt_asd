@@ -18,9 +18,10 @@ public class AddressResponse {
     private  PropertyWithoutAddressResponse property;
     public static AddressResponse fromAddress (Address address) {
         AddressResponse addressDto = new AddressResponse();
+        addressDto.setId(address.getId());
         addressDto.setStreet(address.getStreet());
         addressDto.setCity(address.getCity());
-        addressDto.setZipcode(address.getCity());
+        addressDto.setZipcode(address.getZipCode());
         addressDto.setState(address.getState());
         if(address.getProperty()!=null){
             addressDto.setProperty(PropertyWithoutAddressResponse.fromProperty(address.getProperty()));
